@@ -35,6 +35,30 @@
         </f:view>
     
         <!-- Mostrar registros de empleados -->
+        <f:view>
+            <h:form>
+                <h2>Registros</h2>
+                <p:dataTable   var="empleado" value="#{beanIndex.empleados}" rows="10" paginator="true">
+                    <p:column headerText="Clave">
+                        #{empleado.clave}
+                    </p:column>
+                    <p:column headerText="Nombre">
+                        #{empleado.nombre}
+                    </p:column>
+                    <p:column headerText="Dirección">
+                        #{empleado.direccion}
+                    </p:column>
+                    <p:column headerText="Teléfono">
+                        #{empleado.telefono}
+                    </p:column>
+                    <p:column>
+                        <p:commandButton value="Eliminar"
+                            actionListener="#{beanIndex.eliminarEmpleado(empleado)}"
+                            icon="pi pi-trash" />
+                    </p:column>
+                </p:dataTable>
+            </h:form>
+        </f:view>
        
     </h:body>
 </html>
